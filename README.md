@@ -11,3 +11,9 @@
 
 **Warriors Depth.ipynb**
 * Jupyter Notebook that calculates on/off statistics for Gary Payton II, Kevon Looney
+
+looney.csv
+* On/off statistics for Kevon Looney
+
+payton.csv
+* On/off statistics for Gary Payton II
