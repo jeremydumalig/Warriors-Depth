@@ -4,7 +4,7 @@ rm(list=ls())
 
 looney <- 
   read_csv(file="looney.csv") %>%
-  select(`...1`, `+/-_x`, `2ND PTS`, OREB, DREB, REB, `REB DIFF`, `OPP PTS`, `OPP 2ND PTS`, `OPP PITP`) %>%
+  select(`...1`, `+/-_x`, `2ND PTS`, OREB, DREB, REB, `REB DIFF`, `OPP PTS`, `OPP 2ND PTS`) %>%
   gt() %>%
   tab_style(
     style = list(cell_text(weight = "bold")),
@@ -20,7 +20,7 @@ looney <-
   ) %>%
   tab_spanner(
     label = "Opponent",
-    columns = c(`OPP PTS`, `OPP 2ND PTS`, `OPP PITP`)
+    columns = c(`OPP PTS`, `OPP 2ND PTS`)
   ) %>%
   tab_footnote(
     footnote = "Warriors Rebounds - Opponent Rebounds",
@@ -30,10 +30,6 @@ looney <-
     footnote = "Second-Chance Points",
     locations = cells_column_labels(columns=`2ND PTS`)
   ) %>%
-  tab_footnote(
-    footnote = "Points in the Paint",
-    locations = cells_column_labels(columns=`OPP PITP`)
-  ) %>%
   cols_label(
     `...1` = "",
     REB = "TOT",
@@ -42,8 +38,7 @@ looney <-
     `REB DIFF` = "DIFF",
     `+/-_x` = "+/-",
     `OPP 2ND PTS` = "2ND PTS",
-    `OPP PTS` = "PTS",
-    `OPP PITP` = "PITP"
+    `OPP PTS` = "PTS"
   ) %>%
   tab_header( 
     title = md("**Kevon Looney**"),
@@ -52,7 +47,7 @@ looney <-
 payton <-
   read_csv(file="payton.csv") %>%
   select(`...1`, `+/-_x`, `PTS OFF TO`, STL,
-         `OPP PTS`, `OPP FG%`, `OPP FBPS`, `OPP PITP`) %>%
+         `OPP PTS`, `OPP FBPS`, `OPP PITP`) %>%
   gt() %>%
   tab_style(
     style = list(cell_text(weight = "bold")),
@@ -68,12 +63,11 @@ payton <-
   ) %>%
   tab_spanner(
     label = "Opponent",
-    columns = c(`OPP PTS`, `OPP FG%`, `OPP FBPS`, `OPP PITP`)
+    columns = c(`OPP PTS`, `OPP FBPS`, `OPP PITP`)
   ) %>%
   cols_label(
     `...1` = "",
     `OPP PTS` = "PTS",
-    `OPP FG%` = "FG%",
     `OPP FBPS` = "FBPS",
     `OPP PITP` = "PITP",
     `+/-_x` = "+/-"
